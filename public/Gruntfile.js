@@ -20,7 +20,7 @@ module.exports = function(grunt) {
                     'resources/js/ErrorItemFactory.js',
                     'resources/js/ErrorList.js',
                     'resources/js/NumberInputValidator.js',
-                    'resources/js/FormValidation.js',
+                    'resources/js/CalculationForm.js',
                 ],
                 dest: 'assets/js/calculation-form.js'
             }
