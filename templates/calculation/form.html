@@ -1,32 +1,28 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<header class="header" role="banner">
-    <h1 class="header-heading">Kamat számláló</h1>
-    <p class="header-description">Hegedűs Tamás számításai alapján.</p>
-</header>
-<main role="main">
-    <form id="calculation-form" class="calculation-form" action="{{ formUrl }}" method="get">
-        <div class="calculation-form-row">
-            <label class="calculation-form-label" for="loan">Tőke</label>
-            <input id="loan" name="loan" class="calculation-form-input u-full-width" type="number" value="" max="100" min="1" placeholder="Ide írja a tőke összegét!">
-        </div>
-        <div class="calculation-form-row">
-            <label class="calculation-form-label" for="interest">Kamat</label>
-            <input id="interest" name="interest" class="calculation-form-input u-full-width" type="number" value="" step="any" min="1" placeholder="Ide írja a százalék értéket!">
-        </div>
-        <div class="calculation-form-row">
-            <label class="calculation-form-label" for="duration">Futamidő</label>
-            <input id="duration" name="duration" class="calculation-form-input u-full-width" type="number" value="" min="1" placeholder="24 hónap">
-        </div>
-        <button class="u-full-width button-primary">Számítás</button>
-    </form>
-</main>
+    {{ parent() }}
+    <main role="main">
+        <form id="calculation-form" class="calculation-form" action="{{ formUrl }}" method="get">
+            <div class="calculation-form-row">
+                <label class="calculation-form-label" for="loan">Tőke</label>
+                <input id="loan" name="loan" class="calculation-form-input u-full-width" type="number" value="" max="100" min="1" placeholder="Ide írja a tőke összegét!">
+            </div>
+            <div class="calculation-form-row">
+                <label class="calculation-form-label" for="interest">Kamat</label>
+                <input id="interest" name="interest" class="calculation-form-input u-full-width" type="number" value="" step="any" min="1" placeholder="Ide írja a százalék értéket!">
+            </div>
+            <div class="calculation-form-row">
+                <label class="calculation-form-label" for="duration">Futamidő</label>
+                <input id="duration" name="duration" class="calculation-form-input u-full-width" type="number" value="" min="1" placeholder="24 hónap">
+            </div>
+            <button class="u-full-width button-primary">Számítás</button>
+        </form>
+    </main>
 {% endblock %}
 
 {% block scripts %}
-    <script src="/bower_components/domready/ready.min.js"></script>
-    <script src="/bower_components/webfontloader/webfontloader.js"></script>
     {{ parent() }}
+    <script src="/bower_components/domready/ready.min.js"></script>
     <script src="/assets/js/calculation-form.min.js"></script>
 {% endblock %}
