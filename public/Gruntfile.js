@@ -5,8 +5,18 @@ module.exports = function(grunt) {
         },
         uglify: {
             main: {
-                src: 'resources/js/formValidation.js',
-                dest: 'assets/js/form-validation.min.js'
+                options: {
+                    sourceMap: true
+                },
+                files: {
+                    'assets/js/form-validation.min.js': [
+                        'resources/js/formValidation.js',
+                        'resources/js/NumberInputValidator.js',
+                        'resources/js/ErrorItemFactory.js',
+                        'resources/js/ErrorList.js',
+                        'resources/js/WebFontLoader.js'
+                    ]
+                }
             }
         },
         sass: {
@@ -14,27 +24,20 @@ module.exports = function(grunt) {
                 options: {
                     noCache: true,
                     sourcemap: 'none',
+                    style: 'compressed'
+                },
+                files: {
+                    'assets/css/main.min.css': 'resources/scss/site.scss'
+                }
+            },
+            'main-css-dev': {
+                options: {
+                    noCache: true,
+                    sourcemap: 'auto',
                     style: 'expanded'
                 },
                 files: {
-                    'assets/css/site.css': 'resources/scss/site.scss'
-                }
-            }
-        },
-        concat: {
-            'main-css': {
-                src: [
-                    'bower_components/skeleton/css/normalize.css',
-                    'bower_components/skeleton/css/skeleton.css',
-                    'assets/css/site.css'                    
-                ],
-                dest: 'assets/css/main.css'
-            }
-        },
-        cssmin: {
-            'main-css': {
-                files: {
-                    'assets/css/main.min.css': ['assets/css/main.css']
+                    'assets/css/main.css': 'resources/scss/site.scss'
                 }
             }
         }
@@ -48,5 +51,16 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
 
     // Build task
-    grunt.registerTask('build', ['clean', 'sass', 'concat', 'cssmin', 'uglify']);
+    grunt.registerTask('build', [
+        'clean',
+        'sass:main-css',
+        'uglify'
+    ]);
+
+    // Dev task
+    grunt.registerTask('dev', [
+        'clean',
+        'sass:main-css-dev',
+        'uglify'
+    ]);
 };
