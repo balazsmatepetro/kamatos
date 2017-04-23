@@ -2,8 +2,6 @@
 
 use Kamatos\Http\Controller\CalculationController;
 
-$app->get('/', CalculationController::getActionName('index'))->setName('calculationForm');
+$app->get('/', CalculationController::class . ':index')->setName('calculationForm');
 
-$app->post('/', CalculationController::getActionName('calculate'))->setName('calculation');
-
-$app->get('/szamitas-eredmenye', CalculationController::getActionName('result'))->setName('calculationResult');
+$app->get('/szamitas-eredmenye', CalculationController::class . ':result')->setName('calculationResult');
