@@ -1,31 +1,37 @@
-function validateForm() {
+domready(function ready () {
+    var calculationForm = document.getElementById('calculation-form');
 
-    var loanValue = document.getElementById("loan").value;
+    calculationForm.addEventListener('submit', validateForm);
 
-    var interestValue = document.getElementById("interest").value;
-
-    var durationValue = document.getElementById("duration").value;
-
-
-    if (loanValue == null || loanValue == "") {
-        alert("A tőke mező nem lehet üres!");
-        return false;
+    function validateForm (event) {
+        // TODO: Implement this functionality!
     }
 
-    if (interestValue == null || interestValue == "") {
-        alert("A kamat mező nem lehet üres!");
-        return false;
-    }
+    var loanValidator = new Kamatos.NumberInputValidator({
+        maxValue: 100,
+        minValue: 2
+    });
 
-    if (durationValue == null || durationValue == "") {
-        alert("A futamidő mező nem lehet üres!");
-        return false;
-    }
+    document.getElementById('loan').addEventListener('keyup', function (event) {
+        var formRow = event.target.parentNode;
 
-}
+        var error = formRow.querySelector('.calculation-form-error');
+        // Deleting error element.
+        if (error) {
+            error.remove();
+        }
+        // Input validation.
+        loanValidator.validate(event.target);
 
-function loanTextLiveUpdate() {
+        var stateClass;
 
-    loanValue.toLocaleString();
+        if (!loanValidator.isValid()) {
+            stateClass = 'calculation-form-row-invalid';
+            new Kamatos.ErrorList(loanValidator.errors).render(formRow);
+        } else {
+            stateClass = 'calculation-form-row-valid';
+        }
 
-}
+        formRow.className = stateClass;
+    });
+});

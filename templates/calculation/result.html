@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{# <a href="/">Vissza</a> #}
+{{ parent() }}
+<main class="calculation-result" role="main">
+    <p class="calculation-result-statement">
+        A felvett hitel összege
+        <strong>- VALUE - {# number_format($count->getLoan(),0,',',' ') #}</strong> Ft,
+        <strong>- VALUE - {# $this->getDuration() #}</strong> hónapra
+        <strong>- VALUE - {# $this->getInterest() #}</strong>&percnt;-os kamattal.
+    </p>
+    {#
+        $all = ($this->getLoan() + $this->getSumInterest()[$this->getDuration()-1]);
+        $monthly = $all / $this->getDuration();
+    #}
+    <p class="calculation-result-statement">
+        Összesen visszavizetendő: <strong>- VALUE - {# number_format($all, 0, ',', ' ') #}</strong> 
+        Ft ami havonta: <strong>- VALUE - {# number_format($monthly,0,',',' ') #}</strong> Ft.
+    </p>
+    <table>
+        <thead>
+            <tr>
+                <th>Hónap</th>
+                <th>Tőkemaradvány</th>
+                <th>Kamat adott hónapban</th>
+                <th>Kamat adott hónapig</th>
+            </tr>
+        </thead>
+        <tbody>
+            {# for ($i = 0; $i < count($this->getLoanCounter()); $i++) #}
+            <tr>
+                <td>- VALUE - {# ($i + 1) #}</td>
+                {# number_format($this->getLoanCounter()[$i], 0, ',', ' ') #}
+                <td>- VALUE -</td>
+                {# number_format($this->getInterestCounter()[$i], 0, ',', ' ') #}
+                <td>- VALUE -</td>
+                {# number_format($this->getSumInterest()[$i], 0, ',', ' ') #}
+                <td>- VALUE -</td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+{% endblock %}
