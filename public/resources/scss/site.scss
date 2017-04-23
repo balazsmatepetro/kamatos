@@ -1,71 +1,14 @@
-/*
- * Variables
- */
+// Variables
+@import "variables";
 
-$background-color: lighten(#33C3F0, 20%);
-$header-text-color: #fff;
+// Skeleton
+@import "../../bower_components/Skeleton-Sass/scss/skeleton";
+
+// Components
+@import "components/browseHappy";
+@import "components/calculationForm";
+@import "components/header";
 
 body {
-    background-color: $background-color;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.7em;
-    font-weight: 300;
-
-    form {
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 4px;
-    }
-
-    label {
-        color: #505050;
-    }
-
-    input {
-        font-size: 1.5rem;
-    }
-
-    input[type="submit"] {
-        font-size: 1.5rem;
-        font-family: 'Rakkas', cursive;
-        letter-spacing: .2rem;
-    }
-
-    table {
-        background-color: #fff;
-        padding: 40px;
-        border-radius: 4px;
-        th,
-        td {
-            text-align: center;
-            color: #505050;
-        }
-    }
-
-    p {
-        text-align: center;
-        color: #505050;
-    }
-
-    header {
-        padding: 100px 0 50px 0;
-        color: $header-text-color;
-        text-align: center;
-
-        h1,
-        h3 {
-            font-family: 'Rakkas', cursive;
-            letter-spacing: 1rem;
-            text-transform: uppercase;
-        }
-        h1 {
-            font-size: 7rem;
-        }
-        h3 {
-            font-size: 3rem;
-        }
-        p {
-            font-size: 2rem;
-        }
-    }
+    background-color: $body-color-bg;
 }

@@ -1,0 +1,15 @@
+@import "../variables";
+
+.browse-happy {
+    background-color: $browse-happy-color-bg;
+    box-sizing: border-box;
+    color: $browse-happy-color-text;
+    left: 0;
+    padding: 10px 20px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+}

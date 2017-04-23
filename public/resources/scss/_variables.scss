@@ -1,0 +1,22 @@
+// Skeleton Variables
+@import "../../bower_components/Skeleton-Sass/scss/base/variables";
+
+// Skeleton Overrides
+$font-family: "Open Sans", "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+// Body
+$body-color-bg: lighten($primary-color, 20%);
+
+// Browse Happy
+$browse-happy-color-bg: darken($primary-color, 35%);
+$browse-happy-color-text: #fff;
+
+// Calculation Form
+$calculation-form-color-bg: #fff;
+$calculation-form-color-label: #505050;
+$calculation-form-color-invalid: #f44336;
+$calculation-form-color-valid: lightgreen;
+
+// Header
+$header-description-color-text: #505050;
+$header-heading-color-text: #fff;

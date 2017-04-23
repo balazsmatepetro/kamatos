@@ -1,0 +1,47 @@
+@import "../variables";
+@import "../mixins/calculationForm";
+
+.calculation-form {
+    background-color: $calculation-form-color-bg;
+    border-radius: 4px;
+    padding: 20px;
+
+    @media ($bp-larger-than-tablet) {
+        margin: 0 auto;
+        width: 50%;
+    }
+}
+
+.calculation-form-label {
+    color: $calculation-form-color-label;
+}
+
+.calculation-form-row {
+    margin-bottom: 1rem;
+}
+
+.calculation-form-input {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.calculation-form-error {
+    background-color: #f44336;
+    border-radius: 4px;
+    color: #fff;
+    padding: 4px 8px;
+
+    li {
+        list-style: disc outside;
+        margin-bottom: 0;
+        margin-left: 2rem;
+    }
+}
+
+.calculation-form-row-valid {
+    @include calculation-form-row-state-variant($calculation-form-color-valid);
+}
+
+.calculation-form-row-invalid {
+    @include calculation-form-row-state-variant($calculation-form-color-invalid);
+}

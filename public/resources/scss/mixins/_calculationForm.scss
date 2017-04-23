@@ -1,0 +1,10 @@
+@mixin calculation-form-row-state-variant($color) {
+    .calculation-form-input,
+    .calculation-form-input:focus {
+        border-color: $color;
+    }
+
+    .calculation-form-label {
+        color: $color;
+    }
+}
