@@ -17,6 +17,11 @@ $calculation-form-color-label: #505050;
 $calculation-form-color-invalid: #f44336;
 $calculation-form-color-valid: lightgreen;
 
+// Calculation Result
+$calculation-result-color-bg: #fff;
+$calculation-result-statement-color-bg: darken($primary-color, 35%);
+$calculation-result-statement-color-text: #fff;
+
 // Header
 $header-description-color-text: #505050;
 $header-heading-color-text: #fff;

@@ -1,0 +1,17 @@
+@import "../variables";
+
+.calculation-result {
+    background-color: $calculation-result-color-bg;
+    border-radius: $global-radius;
+    display: block;
+    padding: 20px;
+}
+
+.calculation-result-statement {
+    background-color: $calculation-result-statement-color-bg;
+    border-radius: $global-radius;
+    color: $calculation-result-statement-color-text;
+    margin-bottom: 1.5rem;
+    padding: 4px 8px;
+    text-align: center;
+}
