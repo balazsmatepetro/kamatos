@@ -12,28 +12,22 @@ use Slim\Exception\ContainerException;
  */
 class Application extends SlimApplication
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function __construct($container = [])
-    {
-        parent::__construct($container);
-    }
-    
-    public function registerService($name, $callback)
+    public function bind($name, $callback)
     {
         $container = $this->getContainer();
         
         if ($container->has($name)) {
-            throw new ContainerException;
+            throw new ContainerException('The service \'' . $name . '\' has been provided earlier!');
         }
         
         if (is_object($callback) && $callback instanceof ProviderInterface) {
-            $container[$name] = $callback->register($container);
+            $container[$name] = function ($container) use ($callback) {
+                return $callback->provide($container);
+            };
         } elseif (is_callable($callback)) {
             $container[$name] = $callback;
         } else {
-            throw new ContainerException;
+            throw new ContainerException('Invalid service (' . $name . ')!');
         }
     }
 }
